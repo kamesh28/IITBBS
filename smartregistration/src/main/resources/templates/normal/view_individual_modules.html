@@ -1,0 +1,212 @@
+ <!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+
+<head>
+
+<meta charset="UTF-8">
+<title>This is Home Page</title>
+</head>
+<body>
+	<section>
+		<div class="card mr-3 ml-3">
+		<div class="card-body ">
+			<div class="container text-center">
+								
+											<a th:href="@{'/user/show-modules/0'}" class="btn bg-info text-white" href="#" style="float:left;">Back</a>
+									
+						</div>
+				
+					<table>
+					<tr th:each="d: ${module}" class="table-responsive">
+					    <h1 class="text-center"><span th:text="${d.name}"></span></h1>
+					    <h3 class="text-center" style="float:right"><span th:text="${d.mainauthor}"></span></h3>
+					    
+					    <h4><span th:text="${d.description}"></span></h4><br>
+					</tr>
+					
+					
+					</table>
+					
+					<!-- Search -->
+					
+					<!-- <!-- <div class="search-container my-3">
+					
+					</div>  --> 
+					
+					<!-- <div class="table-responsive"> 
+					
+					<table class="table table-hover">
+					  <thead>
+					    <tr>
+					      <th scope="col">Module ID</th>
+					      <th scope="col">Module Name</th>
+					      <th scope="col">Authority</th>    
+					       <th scope="col">Description</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					  
+					  
+					    <tr th:each="d: ${module}" class="table-responsive">
+					    
+					    
+					       <th scope="row" th:text="${'ModuleID '+d.cId}">1</th>
+					       
+					      
+					       <td >
+					      <img src="" class="my_profile_picture"  th:src="@{'/img/'+${d.image}}" alt="profile photo" />
+					      
+					      
+					      <span th:text="${d.name}"></span>
+					      				      </td> 
+					      <td> 
+					      
+					       <span th:text="${d.mainauthor}"></span>
+					       
+					        </td> 
+					        <td> 
+					      
+					       <span th:text="${d.description}"></span>
+					       
+					        </td> 
+					
+		
+		
+	</tr>
+	</tbody>
+	</table>
+	</div> -->
+	</div>
+	
+	
+	</div>
+	
+	<input type="hidden" th:value="${listsize}" id="listsize" ></input>
+		<div class="card mr-3 ml-3"  id="datatable">
+				<div class="card-body" >
+				
+					<!-- <h1 class="text-center">Sub-Modules Details</h1>
+					 -->
+					
+					<div id="table"  class=" table-responsive" > 
+					
+					<table class="table table-hover" >
+					  <thead>
+					    <tr>
+					      <!-- <th scope="col">Sub-Module ID</th> -->
+					      <th scope="col">Work Item</th>
+					      <th scope="col">Remarks</th>
+					       <th scope="col">Start Date</th>
+					       <th scope="col">End Date</th>
+					       <th scope="col">Action</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					  
+					  <!-- change from c to d in Module Repository nov 2021 -->
+					  
+					    <tr th:each="d: ${modules}" class="table-responsive" >
+					    
+					    
+					      <!--  <th scope="row" th:text="${'Sub-ModuleID '+d.sId}">1</th>
+					        -->
+					      <td>
+					          <span th:text="${d.workitem}" id="d.work"></span>
+					      </td>
+					       
+					      <td> 
+					          <span th:text="${d.sRemarks}"></span>
+					       </td> 
+					       
+					        <td> 
+					           <span th:text="${d.startdate}"></span>
+					       </td> 
+					       
+					       <td> 
+					           <span th:text="${d.enddate}"></span>
+					       </td> 
+					       
+					        <td>
+					           <a href="#" th:href="@{'/user/view-sub-module/'+${d.sId}}" class="btn btn-info btn-sm">Update</a>
+					        </td>
+					   </tr>
+					 </tbody>
+                   </table>
+                        
+                 </div>
+                 </div>
+                 </div>
+                 <div class="card mr-3 ml-3"  id="emptytable">
+				<div class="card-body" >
+				
+					<h3 style="color: red;" >No Data found.Kindly Add</h3>
+					
+					<div id="table"  class=" table-responsive" >
+					</div>
+					</div>
+					</div>
+                 
+                 <div>
+                 <tr th:each="d: ${module}" class="table-responsive">
+                 <form th:action="@{'/user/viewuserdata/'+${d.cId}}" class="mt-2">
+					       		<button type="submit" class ="btn btn-primary btn-sm" style="float:right;">ADD</button>
+				 </form>
+                </div>
+               
+                
+                
+				
+				
+				
+			
+                 
+					       		
+				
+                 
+                 
+                 
+				<!-- Pagination -->		
+				
+				
+				<!--  <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li th:if="${ currentPage != 0}" class="page-item"><a th:href="@{'/user/viewSubModulesByCid/' +${currentPage-1}+'/'+${cId}}" class="page-link" href="#">Previous</a></li>
+    <li th:classappend="${currenPage==i-1?'active':''}" th:each="i : ${#numbers.sequence(1,totalPages)}" class="page-item"><a th:href="@{'/user/viewSubModulesByCid/' +${i-1}}+'/'+${cId}" class="page-link" href="#">1</a></li>
+    
+    <li th:if="${currentPage+1 != totalPages} "  class="page-item"><a th:href="@{'/user/viewSubModulesByCid/' +${currentPage}}+'/'+${cId}" class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>   -->
+				
+				
+				
+				
+				
+				
+
+		<script>
+			$(document).ready(() => {
+				$(".item").removeClass("active");
+				$("#contacts-link").addClass("active");
+			});
+
+		</script>
+		
+		<script type="text/javascript">
+		var number=document.getElementById("listsize").value;  
+
+
+if (number >0) {  
+ document.getElementById("emptytable").style.display="none";
+ document.getElementById("datatable").style.display="visible";
+ }else{
+ document.getElementById("emptytable").style.display="visible";
+  document.getElementById("datatable").style.display="none";
+ }
+ 
+		</script>
+	
+	</section>
+
+
+</body>
+</html>

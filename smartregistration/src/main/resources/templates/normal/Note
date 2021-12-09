@@ -1,0 +1,9 @@
+
+
+@Pathvariable("page")- GetMapping  GetMethod because this can be represent in button action or for link(ahref="")
+
+@ModelAttribute("remarks") - PostMapping because data in form
+Form generally used Post
+
+Model m
+m.addAttribute() is used to show the data in front-end model controller

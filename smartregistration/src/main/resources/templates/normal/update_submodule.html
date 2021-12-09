@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+
+<meta charset="UTF-8">
+<title>This is Home Page</title>
+</head>
+<body>
+	<section>
+	    <div class="card-body">
+			
+				<h1 class ="text-center">Update Details</h1>
+				
+				  <div class="container-fluid mt-2">
+					
+						<div class="row">
+						
+							<div class ="col-md-8 offset-md-2">
+							
+								<form validate action="#"
+									  th:object="${modules}"
+									 
+									  enctype="multipart/form-data"
+									  method="POST"
+									  th:action="@{/user/update-sub-module}"
+									  class="mt-3"								
+								>
+								
+							<div class="input-group" id ="ID" >
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text">
+										
+											<i class="fa fa-id"></i><label>ID</label><br>							
+										</div>
+									</div>	<br>				
+								
+										 <input th:value="${modules.sId}" required type="number" id="sId" name="sId"  placeholder="Module name here" class="form-control"  readonly/> 
+								
+							</div>	
+								
+										<!-- work item -->
+							<div class="input-group mt-3">
+								
+								<div class="input-group-prepend">
+									
+									<div class="input-group-text">
+										 <i class="fa fa-tasks"></i><br>	
+									</div>
+								</div>	<br>				
+								     <input th:value="${modules.workitem}" required type="text" id="workitem" name="workitem" placeholder="Work item" class="form-control"/>
+							</div> 
+								
+							<div class="input-group mt-3">
+								
+								<div class="input-group-prepend">
+									
+										<div class="input-group-text">
+										    <i class="fa fa-calendar"></i><br>							
+										</div>
+								</div>	<br>				
+									<input th:value="${modules.startdate}" required type="date" id="datetime" name="startdate" placeholder="Enter Date " class="form-control" readonly/>
+								
+							</div>
+							
+							<div class="input-group mt-3"> <!-- change -->
+								
+								<div class="input-group-prepend">
+									
+										<div class="input-group-text">
+										    <i class="fa fa-calendar"></i><br>							
+										</div>
+								</div>	<br>				
+									<input required type="date" id="datetime" name="enddate" placeholder="Enter end Date " class="form-control"/>
+								
+							</div>
+								
+							<div class="input-group mt-3">
+								
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fa fa-comment"></i><br>							
+									</div>
+								</div>	<br>				
+								    <input th:value="${modules.sRemarks}" required type="text" id="remarks" name="remarks" placeholder="Remarks" class="form-control"/>
+							</div> <br>
+							
+							<div class="container text-center">
+								 <button type="submit" class="btn bg-primary text-white">Update</button>
+							</div>
+						</form>
+								
+					 </div>
+				</div>
+			</div>
+		</div>
+			
+		<script>
+			$(document).ready(() => {
+				$(".item").removeClass("active");
+				$("#home-link").addClass("active");
+			});
+
+		</script>
+	
+</section>
+
+
+</body>
+</html>

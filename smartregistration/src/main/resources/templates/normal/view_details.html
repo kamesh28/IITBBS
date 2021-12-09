@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+
+<meta charset="UTF-8">
+<title>This is Home Page</title>
+</head>
+<body>
+		<section>
+ <div class ="card mt-1"> 
+ <div class="card-body ">
+				
+					<h1 class="text-center">Module Details</h1>
+					
+					<!-- Search -->
+					
+					<div class="search-container my-3">
+					
+					</div> 
+					
+					<div class="table-responsive"> 
+					
+					<table class="table table-hover">
+					  <thead>
+					    <tr>
+					      <th scope="col">Module ID</th>
+					      <th scope="col">Module Name</th>
+					      <th scope="col">Authority</th>    
+					       <th scope="col">Description</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					  
+					  <!-- change from c to d in Module Repository nov 2021 -->
+					  
+					    <tr th:each="d: ${module}" class="table-responsive">
+					    
+					    
+					       <th scope="row" th:text="${'ModuleID '+d.cId}">1</th>
+					       
+					      
+					       <td >
+					      <!-- <img src="" class="my_profile_picture"  th:src="@{'/img/'+${d.image}}" alt="profile photo" /> -->
+					      
+					      
+					      <span th:text="${d.name}"></span>
+					      				      </td> 
+					      <td> 
+					      
+					       <span th:text="${d.mainauthor}"></span>
+					       
+					        </td> 
+					        <td> 
+					      
+					       <span th:text="${d.description}"></span>
+					       
+					        </td> 
+					
+		
+		
+	</tr>
+	</tbody>
+	</table>
+	</div>
+	</div>
+	 
+		
+			<div class="card-body">
+			
+				<h1 class ="text-center">View Details</h1>
+				
+				
+					<div class="container-fluid mt-2">
+					
+						<div class="row">
+						
+							<div class ="col-md-8 offset-md-2">
+							
+								<form validate action="#"
+									  th:object="${module}"
+									  enctype="multipart/form-data"
+									  method="POST"
+									  th:action="@{/user/viewuserdata}"
+									  class="mt-2"								
+								>
+								
+								<div class="input-group">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text">
+										
+											<i class="fa fa-plus"></i><br>							
+										</div>
+									</div>	<br>				
+								
+										<input th:value="${'ModuleID '+module.cId}" required type="text" id="cId" name="cId"  placeholder="Module name here" class="form-control" readonly/>
+								
+								</div><br>
+								
+								
+								
+								
+								<!-- Module name -->
+								
+								<div class="input-group">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text">
+										
+											<i class="fa fa-plus"></i><br>							
+										</div>
+									</div>	<br>				
+								
+										<input th:value="${module.name}"  required type="text" id="name" name="name" placeholder="Task" class="form-control" readonly />
+								
+								</div>
+								<!-- End of Module Name -->
+								
+								<!--  Date -->
+								<!-- <div class="input-group mt-3">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text">
+										
+											<i class="fa fa-calendar"></i><br>							
+										</div>
+									</div>	<br>				
+								
+										 <input th:value="${module.date}" required type="date" id="date" name="date" placeholder="Date" class="form-control" readonly />
+										
+								
+								</div> -->
+								<!-- End of Date -->
+								
+								
+								
+								<!-- Main Author here -->
+								 <div class="input-group mt-3">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text">
+										
+											<i class="fa fa-user"></i><br>							
+										</div>
+									</div>	<br>				
+								
+										<input th:value="${module.mainauthor}" required type="text" id="mainauthor" name="mainauthor" placeholder="Authority" class="form-control" readonly/>
+								
+								</div> 
+								<!--  End Main Author here -->
+								
+								
+								<!-- Co Author -->
+								<!--  <div class="input-group mt-3">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text">
+										
+												<i class="fa fa-user"></i><br>	
+																	
+										</div>
+									</div>	<br>				
+								
+										<input th:value="${module.coauthor}" required type="text" id="coauthor" name="coauthor" placeholder=" coAuthor here" class="form-control" readonly/>
+								
+								</div>  -->
+								<!-- End Co Author -->
+								
+								
+								
+								<!-- Contact Description -->
+								
+								<div class="input-group mt-3">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text">
+										
+											<i class="fa fa-file"></i><br>							
+										</div>
+									</div>	<br>				
+								
+										<input th:value="${module.description}" required type="text" id="description" name="description" placeholder="Description" class="form-control" readonly/>
+								
+								</div>
+								 		
+								
+								<!-- <div class="form-group mt-3">
+								
+									<textarea th:text="${module.description}"  id="mytextarea"  placeholder="Enter module description" name="description"  class="form-control" rows="1" readonly></textarea>
+								
+								</div> -->
+								
+								
+								<!-- <div class="container text-center">
+								
+									<img style=" width: 100px; height: 100px;" class="img-fluid my_profile_picture" src="" th:src="@{'/img/'+${module.image}}" alt="" />
+								  <p class="text-secondary">Choose new profile pic</p>
+								</div> 
+								<!-- Contact Image -->
+								
+								<!-- <div class="custom-file">
+								
+									<input type="file" name="profileImage" readonly/>
+								
+								</div>
+								 -->
+								
+								</form>
+								
+								<form validate action="#"
+									  th:object="${module}"
+									  enctype="multipart/form-data"
+									  method="GET"
+									  th:action="@{'/user/view-ind-data/' +${module.cId}}"
+									  class="mt-2"	
+									  							
+								>
+							<div class="container text-center">
+								
+									<button type="submit" class="btn bg-primary text-white">Add</button>
+									
+								</div>
+							
+							</form>
+							
+							</div>
+						
+						
+						</div>
+					
+					
+					</div>
+			
+			
+			
+			</div>
+			
+			
+			</div>
+			
+		
+
+
+	</section>
+
+</body>
+</html>

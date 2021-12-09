@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+
+<meta charset="UTF-8">
+<title>Add Module page</title>
+</head>
+<body>
+	<section>
+	
+	
+		<div class ="card mt-1"> 
+		
+			<div class="card-body">
+			
+				<h1 class ="text-center">New Module</h1>
+				
+					<div class="container-fluid mt-2">
+					
+						<div class="row">
+						
+							<div class ="col-md-8 offset-md-2">
+							
+								<form validate action="#"
+									  th:object="${module}"
+									  enctype="multipart/form-data"
+									  method="POST"
+									  th:action="@{/user/process-module}"
+									  class="mt-2"								
+								>
+								<!-- Module name -->
+								
+								<div class="input-group">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text">
+										
+											<i class="fa fa-plus"></i><br>							
+										</div>
+									</div>	<br>				
+									
+									<input required type="text" id="name" name="name" placeholder="Enter Module name here" class="form-control"/>
+									
+										
+								
+								</div>
+								<!-- End of Module Name -->
+								
+								<!-- Drop Down Menu -->
+								<div class="input-group mt-3">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text">
+										
+											<i class="fa fa-user"></i><br>							
+										</div>
+									</div>	<br>				
+								<select name ="mainauthor" id ="mainauthor" class="form-control"/>
+								<option value="value" selected>Select</option>
+								
+								<option value="Developer" >Developer</option>
+                              <option value="Tester" >Tester</option>
+                              <option value="Programmer" >Programmer</option>
+								
+								
+								</select>
+										
+								</div>		
+								
+								<!-- End Drop Down -->
+								
+								<!--Remarks  -->
+								  <div class="input-group mt-3">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text">
+										
+											<i class="fa fa-comment"></i><br>							
+										</div>
+									</div>	<br>				
+								
+										<input required type="text" id="remarks" name="remarks" placeholder="Remarks" class="form-control"/>
+								
+								</div>
+								 
+						
+								 <!-- End of Remarks  -->
+								
+								<!-- New Description -->
+								  <div class="input-group mt-3">
+								
+									<div class="input-group-prepend">
+									
+										<!-- <div class="input-group-text">
+										
+											<i class="fa fa-file"></i><br>							
+										</div> -->
+									</div>	<br>				
+								<textarea required rows="4" cols="50"  id ="description" name="description" placeholder="Description" class="form-control"/></textarea>
+										<!-- <input required type="text" id="description" name="description" placeholder="Description" class="form-control"/> -->
+								
+								</div>
+								 
+								 								 
+								 <!--End of New Description -->
+								
+								
+								
+								<!-- Main Author here -->
+								<!-- <div class="input-group mt-3">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text">
+										
+											<i class="fa fa-user"></i><br>							
+										</div>
+									</div>	<br>				
+								
+										<input required type="text" id="mainauthor" name="mainauthor" placeholder="Developer" class="form-control"/>
+								
+								</div> -->
+								
+								
+								
+								
+								
+								
+								
+							
+								
+								
+								
+								 
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								<!-- Co AUthor -->
+								<!-- <div class="input-group mt-3">
+								
+									<div class="input-group-prepend">
+									
+										<div class="input-group-text">
+										
+												<i class="fa fa-user"></i><br>	
+																	
+										</div>
+									</div>	<br>				
+								
+										<input required type="text" id="coauthor" name="coauthor" placeholder="Co Author" class="form-control"/>
+								
+								</div> -->
+								<!-- End Co Author -->
+								
+								
+								
+								<!-- Module Description -->
+								<!-- <div class="form-group mt-3">
+								
+									<textarea id="mytextarea" placeholder="Enter module description" name="description"  class="form-control" rows="8"></textarea>
+								
+								</div> <br> -->
+								<!-- Module Image -->
+								
+								<!-- <div class="custom-file">
+								
+									<input type="file" name="profileImage" />
+								
+								</div> --><br>
+								
+								<div class="container text-center">
+								
+									<button class="btn bg-primary text-white">Save Module</button>
+								</div>
+								
+								
+								
+								
+								</form>
+							
+							
+							
+							
+							</div>
+						
+						
+						</div>
+					
+					
+					</div>
+			
+			
+			
+			</div>
+			
+			
+			</div>
+			
+			<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+			 <script>
+      				tinymce.init({
+        			selector: '#mytextarea'
+      				});
+    		</script>
+    		
+    		<script>
+			$(document).ready(() => {
+				$(".item").removeClass("active");
+				$("#add-link").addClass("active");
+			});
+
+		</script>
+			
+			
+			
+</section>
+
+
+

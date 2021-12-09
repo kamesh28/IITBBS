@@ -1,0 +1,52 @@
+﻿<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+
+<meta charset="UTF-8">
+<title>This is Home Page</title>
+</head>
+<body>
+	<section>
+	
+		<div class="container">
+			
+				<div class="card">
+					 <div class="card-body my-4">
+					 	<!-- <div class="container text-center">
+					 	<img src="" style="height: 100px; width: 100px;"   class="my_profile_picture"  th:src="@{'/img/default.png'}" alt="profile photo" />
+					 	
+					 	</div>
+					 	
+					 	<h1 class="text-center mt-3 text-secondary font-italic font-weight-light">
+					 		Start Adding your module on cloud...
+					 	</h1> -->
+					 	
+					 	<button  class="btn btn-info btn-block e w-100">ERP Timesheet Module</button><br><br>
+					          <a th:href="@{/user/add-module}" class="btn success"><i class="fa fa-bars"></i> New Module</a>
+                              <a th:href="@{/user/show-modules/0}"  class="btn success"><i class="fa fa-bars"></i> Old Module</a>
+						<hr />
+						
+						<!-- <h3 class="my-3">Donate Us</h3>
+						<input id="payment_field" type="text" class="form-control my-2" placeholder="Enter amount here"/>
+						
+						<div class="container text-center mt-4">
+						
+						<button onclick="paymentStart()" class="btn btn-success btn-block w-100">PAY</button>
+						
+						</div> -->
+					 </div>
+				</div>
+		 </div>
+		<script>
+			$(document).ready(() => {
+				$(".item").removeClass("active");
+				$("#home-link").addClass("active");
+			});
+
+		</script>
+	
+	</section>
+
+
+</body>
+</html>
